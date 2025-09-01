@@ -28,7 +28,7 @@ app.register_blueprint(workforce_bp, url_prefix='/api/workforce')
 app.register_blueprint(reports_bp, url_prefix='/api/reports')
 
 # Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI", "sqlite:///database/app.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
